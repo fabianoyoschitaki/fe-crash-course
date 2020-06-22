@@ -1,0 +1,209 @@
+/* import fonts first https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* 
+    css can have custom properties, variables. If you have same values, you can create custom properties.
+*/
+/* Custom properties */
+:root {
+    --leading: 2em;
+}
+
+/* affects all body */
+body {
+    font-family: 'Montserrat', sans-serif; /* sans-serif is fallback */
+    margin: 0; /* margin affects outside of the element while padding affects inside of an element */
+}
+
+.hero-bg {
+    /* put bg image and color */
+    background: #307D99 url('../images/bg.jpg');
+    /* make the orage appears: x and y axis */
+    background-position: 12% 83%;
+    /* color changes fonts, paragraphs etc. */
+    color: white;
+    /* center text */
+    text-align: center;
+    /* padding - add negative space */
+    /* units can be absolute or relative. absolute would be pixels. 
+    but for different devices let's use relative units. for margin and padding is recommended to use em unit. */
+    padding-bottom: 4em;
+}
+
+/* let's change yummi.eats logo */
+header {
+    padding: 1em 0; /* this adds to the top and bottom */    
+}
+
+/* we're changing only a inside hero-bg */
+.hero-bg a {
+    color: white; /* you can use rgb(), rgba() for alpha etc... */
+    /* remove underline */
+    text-decoration: none;
+    /* make it bold */
+    font-weight: bold;
+    /* for text let's use rem units - this is all specific to responsive and flexible designs */
+    font-size: 1.2rem;
+}
+
+/* let's add the margin that we removed to the sections */
+section {
+    margin: 0 1em;
+}
+
+/* let's change our h1 element */
+h1 {
+    /* increase size */
+    font-size: 2.5rem;
+    margin: 2em 0 1.2em; /* more space in the top, less in the bottom */
+}
+
+/* change "The Healthy" part */
+h1 span {
+    /* make it uppercase */
+    text-transform: uppercase;
+    /* display block means it will be on its own line, nothing is going to float to the left or right of it */
+    display: block;
+    font-size: 1.4rem;
+    
+    /* this is for the blue underline */
+    position: relative;
+
+    /* this is for the blue underline let's put it behind of the parent */
+    z-index: 1;
+}
+
+/* add blue underline */
+h1 span::before {
+    content: ' ';
+    /* situate things anywhere */
+    position: absolute;
+    width: 3em;
+    background: #00BFFF;
+    height: .4em;
+    bottom: 0;
+
+    /* let's put it behind of the parent */
+    z-index: -1;
+
+    /* push it a little bit to the left */
+    margin-left: -.3em;
+}
+
+/* let's change only paragraph of hero */
+.hero-bg p {
+    font-weight: bold;
+    /* put 1em margin on the left and right and push the content down 3em */
+    margin: 0 1em 3em;
+}
+
+/* form container */
+.form-container {
+    background-color: white;
+    /* push it left and right -1em to compensate section 1em */
+    margin: 2em -1em 0;
+    /* padding affects white space in the element */
+    padding: 2em;
+}
+
+/* label inside form */
+label {
+    color: #2D7D98;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+/* the city input */
+input[type=text] {
+    border: 1px solid #707070;
+    
+    /* make it stretches all over */
+    width: 100%;
+    /* make it seems bigger */
+    padding: 1em;
+    /* width + padding makes it go further. We can fix this with box-sizing: box */
+    box-sizing: border-box;
+    
+    /* make it rounded */
+    border-radius: .5em;
+    margin-top: 1.2em;
+}
+
+/* the Example: San Diego */
+.form-container p {
+    color: gray;
+    margin-top: .3em;
+    margin-bottom: 1.5em;
+    font-weight: normal;
+    font-size: .9em;
+}
+
+input[type=button] {
+    background-color: #F89104;
+    /* remove browser border for the button */
+    border: none;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    /* padding in the top and bottom */
+    padding: 1em 0;
+    /* make it rounded */
+    border-radius: .5em;
+    /* increase font size a little bit */
+    font-size: 1.3em;
+    /* make cursor change */
+    cursor: pointer;
+}
+
+/* change when button hover! */
+input[type=button]:hover {
+    background-color: rgb(216, 126, 1);
+}
+
+.authentic {
+    /* overwriting section margin */
+    margin: 0;
+}
+
+/* authentic text */
+.right-col {
+    text-align: center;
+    /* 3em top and bottom and 1em left and right */
+    margin: 3em 1em;
+}
+
+h2 {
+    text-transform: uppercase;
+    /* it also has the underscore in blue. let's put relative */
+    position: relative;
+}
+
+h2::before {
+    content: ' ';
+    /* situate things anywhere */
+    position: absolute;
+    /* make it longer than previous one */
+    width: 8em;
+    background: #00BFFF;
+    height: .4em;
+    bottom: 0;
+
+    /* let's put it behind of the parent */
+    z-index: -1;
+
+    /* push it a little bit to the left */
+    margin-left: -.3em;
+}
+
+/* now we can see the big image */
+img {
+    width: 100%;
+}
+
+/* the authentic text content, add more space between lines */
+p {
+    /* this variable is declared in the start of the page */
+    line-height: var(--leading);
+}
