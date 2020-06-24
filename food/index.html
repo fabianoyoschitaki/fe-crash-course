@@ -9,6 +9,11 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
+    <!-- this is for the JS when clicking the button -->
+    <div id="overlay" class="overlay">
+        <h3>Searching now...</h3>
+    </div>
+
     <div>
         <div class="hero-bg">
             <section class="top">
@@ -32,7 +37,7 @@
                             <p>Example: "San Diego"</p>
                         </div>
 
-                        <input type="button" value="Find Food Now">
+                        <input id="cta-btn" type="button" value="Find Food Now">
                     </form>
                 </div>
             </section>
@@ -49,5 +54,19 @@
             </section>
         </div>
     </div>
+    
+    <script>
+        let btn = document.getElementById('cta-btn');
+        let overlay = document.getElementById('overlay');
+        btn.addEventListener('click', () => {
+            overlay.style.display = 'grid';
+            overlay.classList.add('animate-overlay');
+            // remove class after 3 seconds?
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                overlay.classList.remove('animate-overlay');
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
