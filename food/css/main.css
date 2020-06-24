@@ -17,7 +17,9 @@ body {
 
 .hero-bg {
     /* put bg image and color */
-    background: #307D99 url('../images/bg.jpg');
+    background: #307D99 url("../images/bg.jpg");
+    /* for it to not repeat */
+    background-size: cover;
     /* make the orage appears: x and y axis */
     background-position: 12% 83%;
     /* color changes fonts, paragraphs etc. */
@@ -207,3 +209,118 @@ p {
     /* this variable is declared in the start of the page */
     line-height: var(--leading);
 }
+
+/* media query to responsiveness: this will run if width > 730px */
+@media (min-width: 730px){
+    /* overwrite previous section */
+    section {
+        margin: 0 4em;
+    }
+    .form-container {
+        background-color: white;
+        /* push it left and right -4em to compensate section 4em */
+        margin: 2em -4em 0;
+        /* padding affects white space in the element */
+        padding: 2em;
+    }
+}
+
+/* when > 930px */
+@media (min-width: 930px){
+    .hero-bg {
+        /* main text get to the left */
+        text-align: left;
+    }
+
+    .hero-bg p {
+        margin: 0 0 3em;
+    }
+    /* make the form to the left */
+    .hero-bg section {
+        width: 65%;
+    }
+
+    .form-container {
+        /* top-bottom, right, left */
+        margin: 2em 0 0; 
+        padding: 2em;
+        border-radius: .5em;
+        /* make shadow (how far x and y shadow should extend, blur and color)*/
+        box-shadow: 10px 10px 10px rgba(0,0,0,0.3)
+    }
+
+    /* make the button to the right of the form */
+    form {
+        /* grid, flex... ways to organize layout. flex for alignment. search css flex tutorial, grid tutorial etc.*/
+        display: flex;
+    }
+
+    /* all this to fix form */
+    .form-left {
+        width: 70%;
+    }
+    label {
+        margin: 0;
+    }
+    input[type="button"] {
+        height: fit-content;
+        font-size: 1.1em;
+        /* space between button and form */
+        margin-left: 1em;
+        /* space top */
+        margin-top: 2.2em;
+        /* make it the same size of input */
+        padding: .7em 0;
+        /* make it smaller */
+        width: 30%;
+    }
+
+    /* too much space in the paragraph */
+    .hero-bg p {
+        margin-bottom: 0;
+    }
+
+    /* make authentic section work as well */
+    /* <tag>.<class> */
+    section.authentic {
+        display: grid;
+        /* TODO check on this */
+        grid-template-columns: repeat(2, 50%);
+        /* allow us to name the columns */
+        grid-template-areas: "bowl content"; /* this is to flip the bowl and the content. bowl coming first */
+    }
+    /* this is to flip the bowl and the content */
+    .right-col {
+        grid-area: content;
+        /* increases the padding as we grow % */
+        padding: 0 10%;
+        text-align: left;
+        align-self: center; /* vertically aligned. TODO */
+    }
+    /* this is to flip the bowl and the content */
+    img {
+        grid-area: bowl;
+    }
+
+    h2 {
+        margin: 0;
+    }
+}
+
+/* animate section */
+.top {
+    /* appears in 2 seconds and stops, no loop */
+    animation: fadeIn 2s forwards;
+}
+/* animation start and end */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0em);
+    }
+}
+
